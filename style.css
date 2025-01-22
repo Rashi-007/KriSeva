@@ -6,8 +6,11 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #87ceeb, #f4f4f9);
-    min-height: 100vh;
+    /* background: linear-gradient(180deg, #87ceeb, #f4f4f9);
+    min-height: 100vh; */
+
+    background: rgb(174,205,238);
+background: linear-gradient(90deg, rgba(174,205,238,1) 0%, rgba(149, 233, 148, 0.493) 100%);
 }
 
 /* Navigation Bar */
@@ -57,20 +60,21 @@ body {
 }
 
 .navbar i {
-    font-size: 200px;
-    
-
+    font-size: 27px;
+    padding-right: 5px;
+    color: rgb(189, 146, 5);
 }
-.navbar button a {
+.navbar button {
     background-color: #ffa500;
-    color: white;
     padding: 10px 20px;
     border-radius: 20px;
     border: none;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s
+}
+.navbar button a {
     text-decoration: none;
-   
+    color: white;
 }
 
 .login-btn:hover {
@@ -90,19 +94,21 @@ body {
 /* Hero Section */
 .hero {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 50px;
-    height: calc(100vh - 90px);
-    background: url("Images/farmer-img.avif") no-repeat center right;
-    margin-top: 30px;   
+    margin-top: 15%;
+    margin-left: 10%;
+}
 
-    
+.hero img {
+    margin-left: 30%;
+    height: 300px;
+    width: 900px;
+    margin-top: -10%;
 }
 
 .hero .content {
-    max-width: 50%;
-    
+    max-width: 45%;
+
 }
 
 .hero h1 {
@@ -157,9 +163,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.home-img {
-    background-image: url("farmer-img.jpg");
-}
 
 /* General Styling for Search Container */
 .search-container {
