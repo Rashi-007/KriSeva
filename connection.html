@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmers Connect Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #2E8B57;
+            text-align: center;
+        }
+        p {
+            text-align: center;
+            font-size: 18px;
+        }
+        .form-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        input, select, textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #2E8B57;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #256b47;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Farmers Connect Platform</h1>
+        <p>A platform connecting farmers directly with buyers. Helping farmers get better prices and buyers access fresh produce directly from the source.</p>
+        
+        <div class="form-container">
+            <h2>Get in Touch</h2>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Your Name" required><br>
+                <input type="email" name="email" placeholder="Your Email" required><br>
+                <select name="user_type" required>
+                    <option value="">Select Your Role</option>
+                    <option value="farmer">Farmer</option>
+                    <option value="buyer">Buyer</option>
+                </select><br>
+                <textarea name="message" rows="4" placeholder="Your Message" required></textarea><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agricultural Market Finder</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        #search-bar {
+            width: 60%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .market-details {
+            margin-top: 10px;
+            text-align: left;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+
+        .market-details h3 {
+            margin: 0;
+        }
+
+        .market-details p {
+            margin: 5px 0;
+        }
+
+        .form-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Agricultural Market Finder</h1>
+
+        <!-- Search Bar -->
+        <input id="search-bar" type="text" placeholder="Search for markets...">
+        <div id="map"></div>
+
+        <!-- Market Details -->
+        <div class="market-details" id="market-details" style="display:none;">
+            <h3>Market Information</h3>
+            <p id="market-name"></p>
+            <p id="market-phone"></p>
+            <p id="market-email"></p>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="form-container">
+            <h2>Post Your Agricultural Goods</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Your Name" id="name" required>
+                <input type="email" placeholder="Your Email" id="email" required>
+                <textarea placeholder="Message about goods you want to sell/buy" id="message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let map;
+        let infowindow;
+
+        const markets = [
+            { lat: 28.7041, lng: 77.1025, name: 'Delhi Market', phone: '123-456-7890', email: 'delhi@market.com' },
+            { lat: 19.0760, lng: 72.8777, name: 'Mumbai Market', phone: '234-567-8901', email: 'mumbai@market.com' },
+            { lat: 13.0827, lng: 80.2707, name: 'Chennai Market', phone: '345-678-9012', email: 'chennai@market.com' },
+            { lat: 22.5726, lng: 88.3639, name: 'Kolkata Market', phone: '456-789-0123', email: 'kolkata@market.com' }
+        ];
+
+        function initMap() {
+            // Center of India
+            const india = { lat: 20.5937, lng: 78.9629 };
+
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 5,
+                center: india
+            });
+
+            infowindow = new google.maps.InfoWindow();
+
+            // Add markers for each market
+            markets.forEach(market => {
+                const marker = new google.maps.Marker({
+                    position: { lat: market.lat, lng: market.lng },
+                    map: map,
+                    title: market.name
+                });
+
+                marker.addListener('click', function() {
+                    document.getElementById("market-name").innerText = "Market: " + market.name;
+                    document.getElementById("market-phone").innerText = "Phone: " + market.phone;
+                    document.getElementById("market-email").innerText = "Email: " + market.email;
+                    document.getElementById("market-details").style.display = "block";
+                });
+            });
+
+            // Autocomplete functionality for the search bar
+            const input = document.getElementById('search-bar');
+            const autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.bindTo('bounds', map);
+
+            autocomplete.addListener('place_changed', function() {
+                const place = autocomplete.getPlace();
+                if (place.geometry) {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(15);
+
+                    // Add a marker for the searched place
+                    new google.maps.Marker({
+                        position: place.geometry.location,
+                        map: map
+                    });
+                }
+            });
+        }
+
+        // Contact Form Submission
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            alert(`Thank you, ${name}! Your message has been sent.`);
+
+            // Reset the form after submission
+            document.getElementById("contact-form").reset();
+        });
+    </script>
+</body>
+</html>
