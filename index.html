@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KriSeva - Empowering Farmers</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
 
@@ -15,35 +15,40 @@
     <nav class="navbar">
         <i class="fa-solid fa-tractor"></i>
         <div class="logo">Kri<span>Seva</span></div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="product.html">Products</a></li>
-            <li><a href="weather.html">Weather Forecasting</a></li>
-            <li><a href="Map.html">Maps</a></li>
-            <li><a href="connection.html">Connections</a></li>
-            <li><a href="contact.html">Contacts</a></li>
-            <li><a href="#">About Us</a></li>
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#weather" class="nav-link">Weather</a></li>
+            <li><a href="#nurseries" class="nav-link">Nurseries</a></li>
+            <li><a href="#products" class="nav-link">Products</a></li>
+            <li><a href="#guides" class="nav-link">Guides</a></li>
+            <li><a href="#testing" class="nav-link">Testing</a></li>
+            <li><a href="#about" class="nav-link">About Us</a></li>
+            <!-- <li><button class="login-btn"><a href="login.html">Login/Signup</a></button></li> -->
         </ul>
-        <button class="login-btn"><a href="login.html">Login</a></button>
+        <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+        </div>
+        <button class="login-btn"><a href="login.html">Login/Signup</a></button>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id = "home" class="hero">
         <div class="content">
             <h1>Welcome to<span> KriSeva</span></h1>
             <p>Your one-stop solution for modern farming. Explore weather updates, locate resources on maps, and join a thriving community of farmers.</p>
-            <a href="#" class="btn">Get Started<i class="fa-solid fa-arrow-right"></i></a>
-            <a href="#" class="btn">Learn More<i class="fa-solid fa-arrow-right"></i></a>
+            <button class = "btn">Get Started<i class="fa-solid fa-arrow-right"></i></button>
+            <button class = "btn">Learn More<i class="fa-solid fa-arrow-right"></i></button>
         </div>
         <div class="farmer-img"><img src="Images/farmer-img.avif" alt=""></div>
     </section>
-    
 
     <!-- Features Section -->
     <section class="features">
-        
+
         <h2>Our Features <i class="fa-solid fa-lightbulb"></i></h2>
-        
+
         <div class="feature-list">
             <div class="feature">
                 <h3>Weather Updates</h3>
@@ -75,64 +80,287 @@
             </div>
         </div>
     </section>
-    <!-- Products -->
-     <section class="products" id="products">
-        <div class="heading">
-            <h1>Our Popular<br><span>Products</span></h1>
-            <a href="#" class="btn">Shop Now<i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-        <!-- Product contant -->
-         <div class="products-container"> 
-            <!-- Box 1 -->
-            <div class="box">
-                <img src="Images/product1.png" alt="https://www.bighaat.com/products/amistar-top-fungicide?variant=27947535925271&srsltid=AfmBOor4vx2qIChQjRPoy1gDO7vUBwp6hQSB-eKfCwPRsui5FhDnoTsjaUM&gQT=1">
-                <span>Amistar Top Fungicide - 100 ml</span>
-                <h2>Farm Best Organic <br>Fungicide</h2>
-                <h3 class="price">₹581 <span>100 ml</span></h3>
-                <i class="fa-solid fa-cart-shopping"></i>
-                <i class="fa-regular fa-heart"></i>
-                <span class="discount">-25%</span>
 
+    <!-- Weather Section -->
+     <section id="weather" class="weather-section">
+        <div class="container">
+            <h2>Weather Forecast</h2>
+            <div class="weather-container">
+                <div class="weather-search">
+                    <input type="text" id="cityInput" placeholder="Enter your city">
+                    <button onclick="getWeather()">Get Weather</button>
+                </div>
+                <div class="weather-display" id="weatherDisplay">
+                    <div class="weather-card">
+                        <h3>Current Weather</h3>
+                        <div class="weather-info">
+                            <div class="weather-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <div class="weather-details">
+                                <p class="temperature">25°C</p>
+                                <p class="description">Sunny</p>
+                                <p class="location">Enter location to get weather</p>
+                            </div>
+                        </div>
+                        <div class="weather-stats">
+                            <div class="stat">
+                                <span>Humidity</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="stat">
+                                <span>Wind Speed</span>
+                                <span>10 km/h</span>
+                            </div>
+                            <div class="stat">
+                                <span>Pressure</span>
+                                <span>1013 hPa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- Box 2 -->
-            <div class="box">
-                <img src="Images/product2.png" alt="https://agribegri.com/products/hubel-5-kg-buy-online--buy-online-humic-acid--best-humic-acid.php?gQT=1">
-                <span>HUBEL - Humic Acid 98% Potassium Humate, Suitable for All Crops, Enhances Root Mass, Brix Level, and Plant Growth by Agribegri</span>
-                <h2>Enhance Organic <br>Matter in the Soil</h2>
-                <h3 class="price">₹261 <span>100 ml</span></h3>
-                <i class="fa-solid fa-cart-shopping"></i>
-                <i class="fa-regular fa-heart"></i>
-                <span class="discount">-25%</span>
+        </div>
+    </section>
+
+    <!-- Nursery Map Section -->
+    <section id="nurseries" class="nursery-section">
+        <div class="container">
+            <h2>Find Nearby Nurseries</h2>
+            <div class="map-container">
+               <div id="map"></div>
+                <div class="nursery-list">
+                    <h3>Nearby Nurseries</h3>
+                    <div class="nursery-item">
+                        <h4>Green Valley Nursery</h4>
+                        <p>123 Farm Road, Agricultural District</p>
+                        <p>Phone: (555) 123-4567</p>
+                        <span class="distance">2.5 km away</span>
+                    </div>
+                    <div class="nursery-item">
+                        <h4>Sunrise Seeds & Plants</h4>
+                        <p>456 Garden Street, Plant City</p>
+                        <p>Phone: (555) 987-6543</p>
+                        <span class="distance">4.2 km away</span>
+                    </div>
+                    <div class="nursery-item">
+                        <h4>Farmer's Choice Nursery</h4>
+                        <p>789 Crop Avenue, Harvest Town</p>
+                        <p>Phone: (555) 456-7890</p>
+                        <span class="distance">6.8 km away</span>
+                    </div>
+                </div>
             </div>
-            <!-- Box 3 -->
-            <div class="box">
-                <img src="Images/product3.png" alt="http://www.flipkart.com/ugaoo-vermicompost-plants-1-kg-organic-manure-fertilizer/p/itmf0b136fbd310b?pid=SMNFTBWCPGDJAHEF&lid=LSTSMNFTBWCPGDJAHEF0ZTRTD&marketplace=FLIPKART&cmpid=content_soil-manure_8965229628_gmc&gQT=1">
-                <span>Ugaoo Vermicompost</span>
-                <h2>Enhance Organic <br>Fertilizer in the Soil</h2>
-                <h3 class="price">₹299 <br><span></span></h3>
-                <i class="fa-solid fa-cart-shopping"></i>
-                <i class="fa-regular fa-heart"></i>
-                <span class="discount">-25%</span>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2>Farming Products</h2>
+            <div class="product-categories">
+                <button class="category-btn active" onclick="filterProducts('all')">All Products</button>
+                <button class="category-btn" onclick="filterProducts('seeds')">Seeds</button>
+                <button class="category-btn" onclick="filterProducts('tools')">Tools</button>
+                <button class="category-btn" onclick="filterProducts('fertilizers')">Fertilizers</button>
+                <button class="category-btn" onclick="filterProducts('equipment')">Equipment</button>
             </div>
-            <!-- Box 4 -->
-            <div class="box">
-                <img src="Images/product4.png" alt="https://www.amazon.in/Khejri-Agro-Farm-Fertilizer-Gardens/dp/B0CZT1KZVX?gQT=1">
-                <span>Khejri Agro Farm Organic Cow Manure Fertilizer for Gardens. </span>
-                <h2>Cow Manure Fertilizer  <br>for Gardens.</h2>
-                <h3 class="price">₹265<span></span></h3>
-                <i class="fa-solid fa-cart-shopping"></i>
-                <i class="fa-regular fa-heart"></i>
-                <span class="discount">-25%</span>
-            </div>            
-         </div>
-     </section>
+            <div class="products-grid">
+                <div class="product-card" data-category="seeds">
+                    <img src="/Images/seeds.jpeg" alt="Hybrid Seeds">
+                    <h3>Premium Hybrid Seeds</h3>
+                    <p>High-yield vegetable seeds for better harvest</p>
+                    <div class="price">$29.99</div>
+                    <button class="buy-btn" onclick="redirectToStore('amazon', 'hybrid-seeds')"><b>Buy on Amazon</b></button>
+                </div>
+                <div class="product-card" data-category="tools">
+                    <img src="/Images/tools.jpeg" alt="Garden Tools">
+                    <h3>Professional Garden Tools Set</h3>
+                    <p>Complete set of essential farming tools</p>
+                    <div class="price">$89.99</div>
+                    <button class="buy-btn" onclick="redirectToStore('flipkart', 'garden-tools')"><b>Buy on Flipkart</b></button>
+                </div>
+                <div class="product-card" data-category="fertilizers">
+                    <img src="/Images/product3.png" alt="Organic Fertilizer">
+                    <h3>Organic Fertilizer</h3>
+                    <p>100% natural fertilizer for healthy crops</p>
+                    <div class="price">$24.99</div>
+                    <button class="buy-btn" onclick="redirectToStore('amazon', 'organic-fertilizer')"><b>Buy on Amazon</b></button>
+                </div>
+                <div class="product-card" data-category="equipment">
+                    <img src="/Images/irrigation-kit.jpeg" alt="Irrigation System">
+                    <h3>Drip Irrigation Kit</h3>
+                    <p>Water-efficient irrigation system</p>
+                    <div class="price">$149.99</div>
+                    <button class="buy-btn" onclick="redirectToStore('ebay', 'irrigation-kit')"><b>Buy on eBay</b></button>
+                </div>
+                <div class="product-card" data-category="seeds">
+                    <img src="/Images/flower-seeds.jpg" alt="Flower Seeds">
+                    <h3>Flower Seeds Collection</h3>
+                    <p>Beautiful flowers for your garden</p>
+                    <div class="price">$19.99</div>
+                    <button class="buy-btn" onclick="redirectToStore('amazon', 'flower-seeds')"><b>Buy on Amazon</b></button>
+                </div>
+                <div class="product-card" data-category="tools">
+                    <img src="/Images/pruning-shears.jpeg" alt="Pruning Shears">
+                    <h3>Professional Pruning Shears</h3>
+                    <p>Sharp and durable pruning tools</p>
+                    <div class="price">$34.99</div>
+                    <button class="buy-btn" onclick="redirectToStore('flipkart', 'pruning-shears')"><b>Buy on Flipkart</b></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Farming Guides Section -->
+    <section id="guides" class="guides-section">
+        <div class="container">
+            <h2>Farming Video Guides</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/8ulpy_GFLDk?si=9aCmCz-AzpjC8z4m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <h3>Soil Preparation Techniques</h3>
+                    <p>Learn the best practices for preparing your soil for optimal crop growth.</p>
+                    <span class="duration">12:45</span>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/rXT5HwH-l9w?si=VIOV0wGZbTNmK5Hv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <h3>Modern Irrigation Systems</h3>
+                    <p>Discover efficient watering techniques to maximize your crop yield.</p>
+                    <span class="duration">15:30</span>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/FTpCxlI7nu0?si=Mr8zgFPuaUXb7NFl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <!-- <img src="/placeholder.svg?height=200&width=300" alt="Pest Control"> -->
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <h3>Organic Pest Control</h3>
+                    <p>Natural methods to protect your crops from pests and diseases.</p>
+                    <span class="duration">18:20</span>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/64YapgN6G2w?si=oZFrHEeUd0OGmMda" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <!-- <img src="/placeholder.svg?height=200&width=300" alt="Crop Rotation"> -->
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <h3>Crop Rotation Strategies</h3>
+                    <p>Maintain soil health and increase productivity with proper crop rotation.</p>
+                    <span class="duration">14:15</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testing -->
+    <section id="testing" class="testing-section">
+            <div class="container">
+                <h2>Soil & Pesticide Testing</h2>
+                <div class="testing-grid">
+                    <div class="testing-card">
+                        <h3>Soil Testing</h3>
+                        <div class="upload-area" id="soilUpload">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Upload soil image for analysis</p>
+                            <input type="file" id="soilImage" accept="image/*" onchange="analyzeSoil(this)">
+                        </div>
+                        <div class="test-results" id="soilResults" style="display: none;">
+                            <h4>Soil Analysis Results</h4>
+                            <div class="result-item">
+                                <span>pH Level:</span>
+                                <span class="result-value">6.8 (Neutral)</span>
+                            </div>
+                            <div class="result-item">
+                                <span>Nitrogen:</span>
+                                <span class="result-value">Medium</span>
+                            </div>
+                            <div class="result-item">
+                                <span>Phosphorus:</span>
+                                <span class="result-value">High</span>
+                            </div>
+                            <div class="result-item">
+                                <span>Potassium:</span>
+                                <span class="result-value">Low</span>
+                            </div>
+                            <div class="recommendations">
+                                <h5>Recommendations:</h5>
+                                <ul>
+                                    <li>Add potassium-rich fertilizer</li>
+                                    <li>Consider organic compost</li>
+                                    <li>Test again in 3 months</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testing-card">
+                        <h3>Pesticide Testing</h3>
+                        <div class="pesticide-form">
+                            <select id="cropType">
+                                <option value="">Select Crop Type</option>
+                                <option value="wheat">Wheat</option>
+                                <option value="rice">Rice</option>
+                                <option value="corn">Corn</option>
+                                <option value="tomato">Tomato</option>
+                                <option value="potato">Potato</option>
+                            </select>
+                            <select id="pestType">
+                                <option value="">Select Pest Type</option>
+                                <option value="aphids">Aphids</option>
+                                <option value="caterpillars">Caterpillars</option>
+                                <option value="beetles">Beetles</option>
+                                <option value="fungus">Fungal Disease</option>
+                                <option value="weeds">Weeds</option>
+                            </select>
+                            <button onclick="recommendPesticide()">Get Recommendation</button>
+                        </div>
+                        <div class="pesticide-results" id="pesticideResults" style="display: none;">
+                            <h4>Recommended Pesticides</h4>
+                            <div class="pesticide-item">
+                                <h5>Organic Solution</h5>
+                                <p>Neem Oil Spray</p>
+                                <span class="safety-level safe">Safe</span>
+                            </div>
+                            <div class="pesticide-item">
+                                <h5>Chemical Solution</h5>
+                                <p>Imidacloprid 17.8% SL</p>
+                                <span class="safety-level moderate">Moderate Risk</span>
+                            </div>
+                            <div class="usage-instructions">
+                                <h5>Usage Instructions:</h5>
+                                <ul>
+                                    <li>Apply during early morning or evening</li>
+                                    <li>Use protective equipment</li>
+                                    <li>Follow label instructions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
      <!-- About -->
       <section class="about" id="about">
         <img src="Images/about.jpg" alt="">
         <div class="about-text">
             <span>About Us</span>
             <p>The objective behind the Portal is to provide a single window access to the information and services being provided by the Indian Government for citizens and other stakeholders. An attempt has been made through this Portal to provide comprehensive, accurate, reliable and one stop source of information about India and its various facets. The current Portal is a metadata driven site that links to the other Indian Government Portals/websites for most updated information.</p>
-            <a href="#" class="btn">Learn More<i class="fa-solid fa-arrow-right"></i></a>
+            <button class = "btn">Learn More<i class="fa-solid fa-arrow-right"></i></button>
         </div>
       </section>
     <!-- Footer   -->
@@ -148,6 +376,8 @@
             <p>Contact: support@kriseva.com | +91-123-456-7890</p>
         </div>
     </footer>
-    
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
