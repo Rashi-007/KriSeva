@@ -77,31 +77,54 @@ function updateWeatherDisplay(data) {
 }
 
 // Initialize map
-let map
-const L = window.L // Declare the L variable
+// let map
+// const L = window.L // Declare the L variable
+// function initMap() {
+//   // Default coordinates (you can change these)
+//   const defaultLat = 40.7128
+//   const defaultLng = -74.006
+
+//   map = L.map("map").setView([defaultLat, defaultLng], 13)
+
+//   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+//     attribution: "© OpenStreetMap contributors",
+//   }).addTo(map)
+
+//   // Add sample nursery markers
+//   const nurseries = [
+//     { lat: 40.7128, lng: -74.006, name: "Green Valley Nursery", address: "123 Farm Road" },
+//     { lat: 40.7589, lng: -73.9851, name: "Sunrise Seeds & Plants", address: "456 Garden Street" },
+//     { lat: 40.6892, lng: -74.0445, name: "Farmer's Choice Nursery", address: "789 Crop Avenue" },
+//   ]
+
+//   nurseries.forEach((nursery) => {
+//     L.marker([nursery.lat, nursery.lng]).addTo(map).bindPopup(`<b>${nursery.name}</b><br>${nursery.address}`)
+//   })
+// }
+
 function initMap() {
-  // Default coordinates (you can change these)
-  const defaultLat = 40.7128
-  const defaultLng = -74.006
+      const map = L.map("map").setView([40.7128, -74.006], 13);
 
-  map = L.map("map").setView([defaultLat, defaultLng], 13)
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors",
+      }).addTo(map);
 
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "© OpenStreetMap contributors",
-  }).addTo(map)
+      const nurseries = [
+        { lat: 40.7128, lng: -74.006, name: "Green Valley Nursery", address: "123 Farm Road" },
+        { lat: 40.7589, lng: -73.9851, name: "Sunrise Seeds & Plants", address: "456 Garden Street" },
+        { lat: 40.6892, lng: -74.0445, name: "Farmer's Choice Nursery", address: "789 Crop Avenue" },
+      ];
 
-  // Add sample nursery markers
-  const nurseries = [
-    { lat: 40.7128, lng: -74.006, name: "Green Valley Nursery", address: "123 Farm Road" },
-    { lat: 40.7589, lng: -73.9851, name: "Sunrise Seeds & Plants", address: "456 Garden Street" },
-    { lat: 40.6892, lng: -74.0445, name: "Farmer's Choice Nursery", address: "789 Crop Avenue" },
-  ]
+      nurseries.forEach((n) => {
+        L.marker([n.lat, n.lng])
+          .addTo(map)
+          .bindPopup(`<b>${n.name}</b><br>${n.address}`);
+      });
+    }
 
-  nurseries.forEach((nursery) => {
-    L.marker([nursery.lat, nursery.lng]).addTo(map).bindPopup(`<b>${nursery.name}</b><br>${nursery.address}`)
-  })
-}
-
+    // Initialize map after page loads
+    window.onload = initMap;
+    
 // Initialize map when page loads
 document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("map")) {
