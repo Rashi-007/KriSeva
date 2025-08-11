@@ -30,11 +30,11 @@ A brief, catchy description of your webpage:
 ![Map Screenshot](Images/map_screenshot.png)
 
 ## 📍 Live Demo
-🔗 [Click here to view live website]([https://yourusername.github.io/your-repo-name/])
+🔗 [Click here to view live website]([(https://github.com/Rashi-007/Rough-KriSeva.git)])
 
 ## 📂 Installation & Setup
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/your-repo-name.git
+git clone (https://github.com/Rashi-007/Rough-KriSeva.git)
 
 # Open index.html in your browser
