@@ -30,7 +30,7 @@ A brief, catchy description of your webpage:
 ![Map Screenshot](Images/map_screenshot.png)
 
 ## 📍 Live Demo
-🔗 [Click here to view live website]([(https://github.com/Rashi-007/Rough-KriSeva.git)])
+🔗 [Click here to view live website](https://kriseva.netlify.app/)
 
 ## 📂 Installation & Setup
 ```bash
